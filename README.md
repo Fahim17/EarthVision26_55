@@ -7,24 +7,14 @@ Here’s a clean, professional **GitHub README.md** based on your paper. You can
 ### World-Scale Analysis for Image Country Geolocalization
 
 
-## 📌 Overview
+## 📌 Abstract
 
-This project presents a **systematic benchmark of Vision-Language Models (VLMs)** for **country-level image geolocalization** using **ground-view images only**.
-
-Unlike traditional approaches that rely on:
-
-* image retrieval
-* GPS metadata
-* or task-specific training
-
-we evaluate **zero-shot geographic reasoning** using **prompt-based inference**.
-
+Image geolocalization has traditionally been addressed through retrieval-based place recognition or geometry-based visual localization pipelines. Recent advances in Vision-Language Models (VLMs) have demonstrated strong zero-shot reasoning capabilities across multimodal tasks, yet their performance in geographic inference remains underexplored. In this work, we present a systematic benchmark of multiple state-of-the-art VLMs for country-level image geolocalization using ground-view imagery only. Instead of relying on image matching, GPS metadata, or task-specific training, we evaluate prompt-based country prediction in a zero-shot setting. The selected models are tested on three geographically diverse datasets to assess their robustness and generalization ability. Our results reveal substantial variation across models, highlighting the potential of semantic reasoning for coarse geolocalization and the limitations of current VLMs in capturing fine-grained geographic cues. This study provides the first focused comparison of modern VLMs for country-level geolocalization and establishes a foundation for future research at the intersection of multimodal reasoning and geographic understanding.
 ---
 
 ## 🎯 Key Contributions
 
 * ✅ **Unified Benchmark** for evaluating VLMs on geolocalization
-* 🌍 **World-scale evaluation** across 3 diverse datasets
 * 📊 Introduction of **Geographic Error Reasonableness (GER)**
 * 🔍 Deep analysis of:
 
@@ -83,143 +73,19 @@ We benchmark **9 state-of-the-art VLMs**:
 | CityGuessr     | ~68K   | 91        | YouTube            |
 | OSV5M (subset) | 50K    | 219       | Mapillary          |
 
----
-
-## 📈 Evaluation Metrics
-
-### Accuracy
-
-* **Top-1 Accuracy**
-* **Top-5 Accuracy**
-
-### Geographic Error Metrics
-
-* 🌍 **Hop Distance** (geographic proximity of errors)
-* 🧠 **Geographic Error Reasonableness (GER)**
-
----
-
-## 🧪 Geographic Error Reasonableness (GER)
-
-![Image](https://i.insider.com/6245242f4829f10018e47aee?format=jpeg\&width=1200)
-
-![Image](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Fuller_projection_with_largest_countries.svg/1280px-Fuller_projection_with_largest_countries.svg.png)
-
-![Image](https://www.researchgate.net/publication/348794634/figure/fig3/AS%3A1023140528398343%401620947119840/Examples-of-Wrong-Classifications-presented-in-Expt-1-Explanation-Present-condition.png)
-
-![Image](https://www.researchgate.net/publication/374938375/figure/fig3/AS%3A11431281203362284%401699287626086/Visual-map-of-countries-region-A-Geographic-distribution-map-based-on-the-total.tif)
-
-GER evaluates whether **wrong predictions are visually reasonable**.
-
-* **GER-Weak** → predicted country appears in ≥1 nearest neighbors
-* **GER-Strong** → appears in ≥2 neighbors
-
-👉 Insight:
-
-> Not all errors are equal — some are *visually justified*.
-
----
-
-## 🔥 Key Findings
-
-### 🥇 Best Model
-
-* **Qwen3-VL-4B** achieves highest performance across datasets
-
----
-
-### ⚠️ Inverted Scaling
-
-* Larger models (e.g., Qwen3-VL-8B) **do NOT always perform better**
-
----
-
-### 🏙️ Urban vs Rural Gap
-
-* Models perform significantly better on **urban scenes**
-* Up to **34% accuracy gap**
-
----
-
-### 🌿 Biome Sensitivity
-
-* Performance varies across:
-
-  * Tropical 🌴
-  * Arid 🏜️
-  * Boreal 🌲
-* Dataset distribution heavily affects results
-
----
-
-### 🌍 Error Behavior
-
-* Strong models:
-
-  * Make **geographically close mistakes**
-  * Show **higher GER (reasonable errors)**
-
-* Weak models:
-
-  * Produce **random, visually unjustified errors**
-
----
-
-## 📉 Example Results (Top-1 Accuracy)
-
-| Model            | GeoGuessr  | CityGuessr | OSV5M  |
-| ---------------- | ---------- | ---------- | ------ |
-| Qwen3-VL-4B      | **74.79%** | **65.78%** | 45.45% |
-| InternVL2.5-8B   | 65.00%     | 57.21%     | 36.30% |
-| LLaVA-Mistral-7B | 39.42%     | 30.51%     | 17.67% |
-
----
-
-## ⚙️ Setup & Usage (Example)
-
-```bash
-git clone https://github.com/yourusername/your-repo.git
-cd your-repo
-pip install -r requirements.txt
-```
-
-### Run Inference
-
-```bash
-python run_inference.py \
-  --model qwen3-vl-4b \
-  --image path/to/image.jpg
-```
-
----
-
-## 🔬 Future Work
-
-* 🔧 Fine-tuning VLMs for geolocation
-* 🔗 Hybrid models (retrieval + reasoning)
-* 🌐 Better geographic grounding
-* 📉 Reducing dataset bias
 
 ---
 
 ## 📚 Citation
 
 ```bibtex
-@article{anonymous2026vlmgeo,
-  title={Where Do Vision-Language Models Fail? World Scale Analysis for Image Country Geolocalization},
-  journal={EarthVision 2026},
-  year={2026}
-}
+
 ```
 
 ---
 
 ## 🙌 Acknowledgements
 
-* GeoGuessr
-* Mapillary (OSV5M)
-* CityGuessr Dataset
-* Open-source VLM community
 
 ---
 
@@ -230,10 +96,4 @@ For questions or collaboration:
 * Open an issue
 * Or reach out via email
 
----
 
-If you want, I can also:
-
-* tailor this README specifically for your **GitHub repo structure**
-* add **badges, demo GIFs, or results plots**
-* or generate a **project website (GitHub Pages)** from this README
