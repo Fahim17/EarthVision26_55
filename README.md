@@ -33,12 +33,10 @@ Given an input image, the model predicts:
 ```
 ---
 ## 🚀 Overview of the evaluation pipeline
-<img width="969" height="273" alt="Screenshot 2026-04-20 222301" src="https://github.com/user-attachments/assets/3e500251-3bf4-4e68-87c4-0e81197fcfe0" />
+<!-- <img width="969" height="273" alt="Screenshot 2026-04-20 222301" src="https://github.com/user-attachments/assets/3e500251-3bf4-4e68-87c4-0e81197fcfe0" /> -->
+![Evaluation Pipeline](figs/overview.png)
 
-A ground-level image and a structured prompt are passed to each of the three VLM families (\(\leq\)8B parameters), which output Top-5 country predictions. Performance is assessed via Top-1/Top-5 accuracy and a multi-dimensional evaluation framework comprising Environmental 
-Stratification (urban/rural and six biome categories), Error Structure 
-Analysis (neighbor hop distance), and Geographic Error Reasonableness 
-(GER) score, the latter two applied only to incorrect predictions.
+A ground-level image and a structured prompt are passed to each of the three VLM families (8B parameters), which output Top-5 country predictions. Performance is assessed via Top-1/Top-5 accuracy and a multi-dimensional evaluation framework comprising Environmental Stratification (urban/rural and six biome categories), Error Structure Analysis (neighbor hop distance), and Geographic Error Reasonableness (GER) score, the latter two applied only to incorrect predictions.
 
 ---
 ### Two evaluation modes:
@@ -82,6 +80,11 @@ We benchmark **9 state-of-the-art VLMs**:
 
 
 ---
+## 📈 Results
+![Evaluation Pipeline](figs/eval_results.png)
+
+---
+
 
 ## 📚 Citation
 
