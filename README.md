@@ -1,7 +1,16 @@
 
-# 🌍 Where Do Vision-Language Models Fail?
+<h1 align="center">
+🌎 Where Do Vision-Language Models Fail? <br>
+World Scale Analysis for Image Geolocalization
+</h1>
 
-### World-Scale Analysis for Image Country Geolocalization
+<p align="center">
+  <a href="[https://arxiv.org/abs/2604.16248](https://arxiv.org/abs/2604.16248)">
+    <img src="https://img.shields.io/badge/arXiv-2604.16248-b31b1b.svg">
+  </a>
+</p>
+
+
 
 
 ## 📌 Abstract
@@ -33,8 +42,11 @@ Given an input image, the model predicts:
 ```
 ---
 ## 🚀 Overview of the evaluation pipeline
-<!-- <img width="969" height="273" alt="Screenshot 2026-04-20 222301" src="https://github.com/user-attachments/assets/3e500251-3bf4-4e68-87c4-0e81197fcfe0" /> -->
-![Evaluation Pipeline](figs/overview.png)
+
+<p align="center">
+  <img src="figs/overview.png"/><br>
+  <em>Figure 1: Evaluation pipeline of the proposed framework</em>
+</p>
 
 A ground-level image and a structured prompt are passed to each of the three VLM families (8B parameters), which output Top-5 country predictions. Performance is assessed via Top-1/Top-5 accuracy and a multi-dimensional evaluation framework comprising Environmental Stratification (urban/rural and six biome categories), Error Structure Analysis (neighbor hop distance), and Geographic Error Reasonableness (GER) score, the latter two applied only to incorrect predictions.
 
@@ -81,7 +93,12 @@ We benchmark **9 state-of-the-art VLMs**:
 
 ---
 ## 📈 Results
-![Evaluation Pipeline](figs/eval_results.png)
+
+
+<p align="left">
+  <img src="figs/eval_results.png" width="600"/><br>
+  <em>Figure 2: Geolocalization accuracy. Top-1 / Top-5 accuracy (%) across all three benchmarks.</em>
+</p>
 
 ---
 
@@ -89,7 +106,15 @@ We benchmark **9 state-of-the-art VLMs**:
 ## 📚 Citation
 
 ```bibtex
-
+@misc{bharadwaj2026visionlanguagemodelsfailworld,
+      title={Where Do Vision-Language Models Fail? World Scale Analysis for Image Geolocalization}, 
+      author={Siddhant Bharadwaj and Ashish Vashist and Fahimul Aleem and Shruti Vyas},
+      year={2026},
+      eprint={2604.16248},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2604.16248}, 
+}
 ```
 
 ---
