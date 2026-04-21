@@ -101,6 +101,12 @@ We benchmark **9 state-of-the-art VLMs**:
 </p>
 
 ---
+<p align="left">
+  <img src="figs/table7.png"/><br>
+  <em>Figure 3: Neighbouring country confusion analysis using Qwen3-VL-4B-Instruct in a blind two-turn setting (Turn 1: predict; Turn 2:
+justify).</em>
+</p>
+---
 
 
 ## 📚 Citation
