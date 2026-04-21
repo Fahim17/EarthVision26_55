@@ -31,7 +31,16 @@ Given an input image, the model predicts:
   "predictions": ["Country1", "Country2", "Country3", "Country4", "Country5"]
 }
 ```
+---
+## 🚀 Overview of the evaluation pipeline
+<img width="969" height="273" alt="Screenshot 2026-04-20 222301" src="https://github.com/user-attachments/assets/3e500251-3bf4-4e68-87c4-0e81197fcfe0" />
 
+A ground-level image and a structured prompt are passed to each of the three VLM families (\(\leq\)8B parameters), which output Top-5 country predictions. Performance is assessed via Top-1/Top-5 accuracy and a multi-dimensional evaluation framework comprising Environmental 
+Stratification (urban/rural and six biome categories), Error Structure 
+Analysis (neighbor hop distance), and Geographic Error Reasonableness 
+(GER) score, the latter two applied only to incorrect predictions.
+
+---
 ### Two evaluation modes:
 
 * **Unconstrained** → free-form prediction
