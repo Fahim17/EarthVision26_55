@@ -3,52 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EarthVision | World Scale Analysis for Image Geolocalization</title>
-  <meta name="description" content="Project page for 'Where Do Vision-Language Models Fail? World Scale Analysis for Image Geolocalization'." />
+  <title>EarthVision | Where Do Vision-Language Models Fail?</title>
+  <meta name="description" content="Academic project page for 'Where Do Vision-Language Models Fail? World Scale Analysis for Image Geolocalization'." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0b1020;
-      --bg-soft: #121934;
-      --card: rgba(255,255,255,0.08);
-      --card-border: rgba(255,255,255,0.12);
-      --text: #eaf0ff;
-      --muted: #b8c2e0;
-      --accent: #82aaff;
-      --accent-2: #7ef0c7;
-      --shadow: 0 12px 35px rgba(0,0,0,0.28);
-      --max: 1100px;
+      --bg: #f6f8fc;
+      --bg-soft: #eef2fb;
+      --surface: rgba(255,255,255,0.8);
+      --surface-strong: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: rgba(15, 23, 42, 0.08);
+      --accent: #2563eb;
+      --accent-soft: #dbeafe;
+      --accent-2: #0f766e;
+      --shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+      --radius: 24px;
+      --max: 1160px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(130,170,255,0.18), transparent 25%),
-        radial-gradient(circle at top right, rgba(126,240,199,0.10), transparent 20%),
-        linear-gradient(180deg, #0a1022 0%, #0c1226 35%, #0e1430 100%);
+        radial-gradient(circle at top left, rgba(37,99,235,0.10), transparent 30%),
+        radial-gradient(circle at top right, rgba(15,118,110,0.08), transparent 22%),
+        linear-gradient(180deg, #f8fbff 0%, #f6f8fc 100%);
       line-height: 1.65;
     }
 
+    img { max-width: 100%; display: block; }
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
-
-    .container {
-      width: min(var(--max), calc(100% - 2rem));
-      margin: 0 auto;
-    }
+    .container { width: min(var(--max), calc(100% - 2rem)); margin: 0 auto; }
 
     .nav {
       position: sticky;
       top: 0;
-      z-index: 100;
-      backdrop-filter: blur(16px);
-      background: rgba(8, 12, 25, 0.72);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      z-index: 1000;
+      background: rgba(255,255,255,0.78);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
     }
-
     .nav-inner {
       display: flex;
       align-items: center;
@@ -56,207 +58,228 @@
       gap: 1rem;
       padding: 0.9rem 0;
     }
-
     .brand {
       font-weight: 800;
-      letter-spacing: 0.02em;
-      color: white;
+      letter-spacing: -0.02em;
+      color: var(--text);
     }
-
     .nav-links {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
+      align-items: center;
       justify-content: flex-end;
     }
-
     .nav-links a {
       color: var(--muted);
       font-size: 0.95rem;
+      font-weight: 500;
     }
 
     .hero {
-      padding: 4.5rem 0 2rem;
+      padding: 4.8rem 0 2.5rem;
       text-align: center;
     }
-
-    .pill {
+    .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.45rem 0.8rem;
-      border: 1px solid rgba(255,255,255,0.12);
+      padding: 0.5rem 0.9rem;
       border-radius: 999px;
-      background: rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.75);
+      border: 1px solid var(--border);
       color: var(--muted);
-      font-size: 0.9rem;
+      box-shadow: var(--shadow);
+      font-size: 0.92rem;
+      font-weight: 600;
     }
-
     h1 {
       margin: 1rem auto 1rem;
-      max-width: 900px;
-      font-size: clamp(2rem, 4vw, 3.75rem);
-      line-height: 1.1;
-      letter-spacing: -0.03em;
+      max-width: 980px;
+      font-size: clamp(2.2rem, 5vw, 4.4rem);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
     }
-
-    .subtitle {
-      margin: 0 auto 1.75rem;
-      max-width: 860px;
+    .hero-subtitle {
+      max-width: 920px;
+      margin: 0 auto 1.25rem;
+      font-size: clamp(1rem, 1.8vw, 1.18rem);
       color: var(--muted);
-      font-size: clamp(1rem, 1.7vw, 1.15rem);
     }
-
+    .authors {
+      margin: 1.2rem auto 0.6rem;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 1.02rem;
+    }
+    .authors a { color: var(--text); }
+    .affiliation {
+      color: var(--muted);
+      font-size: 0.98rem;
+      margin-bottom: 1.2rem;
+    }
     .button-row, .badge-row {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
       gap: 0.85rem;
+      flex-wrap: wrap;
     }
-
-    .button {
+    .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 0.55rem;
-      padding: 0.85rem 1.1rem;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.06));
-      color: white;
+      padding: 0.88rem 1.15rem;
+      border-radius: 16px;
+      background: var(--surface-strong);
+      color: var(--text);
+      border: 1px solid var(--border);
       box-shadow: var(--shadow);
-      font-weight: 600;
+      font-weight: 700;
+      text-decoration: none;
     }
-
-    .button.primary {
-      background: linear-gradient(180deg, rgba(130,170,255,0.9), rgba(103,142,236,0.9));
-      border-color: rgba(130,170,255,0.35);
-      color: #081120;
+    .btn.primary {
+      background: linear-gradient(180deg, #2d6ef2 0%, #2563eb 100%);
+      color: white;
+      border-color: rgba(37,99,235,0.35);
     }
+    .btn:hover { text-decoration: none; transform: translateY(-1px); }
 
-    section {
-      padding: 1.8rem 0;
-    }
-
+    section { padding: 1.9rem 0; }
     .section-title {
-      font-size: clamp(1.4rem, 2vw, 2rem);
-      margin-bottom: 0.9rem;
-      letter-spacing: -0.02em;
+      margin: 0 0 0.85rem;
+      font-size: clamp(1.45rem, 2.4vw, 2rem);
+      letter-spacing: -0.03em;
     }
-
-    .section-text {
+    .section-lead {
+      margin: 0;
       color: var(--muted);
       max-width: 900px;
     }
 
-    .grid {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .grid-3 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .grid-2 {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+    .grid { display: grid; gap: 1rem; }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 
     .card {
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: 24px;
-      padding: 1.15rem 1.15rem 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
       box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      backdrop-filter: blur(10px);
     }
-
-    .card h3 {
+    .card h3, .card h4 {
       margin-top: 0;
       margin-bottom: 0.55rem;
-      font-size: 1.1rem;
+      letter-spacing: -0.02em;
     }
-
-    .card p, .card li { color: var(--muted); }
-
-    .figure {
-      margin: 1rem 0 0;
-      padding: 1rem;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 24px;
+    .card p, .card li {
+      color: var(--muted);
+      margin-top: 0;
+    }
+    .stat {
+      padding: 1.15rem;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.76));
+      border: 1px solid var(--border);
       box-shadow: var(--shadow);
     }
+    .stat .value {
+      font-size: 1.85rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.25rem;
+    }
+    .stat .label { color: var(--muted); font-size: 0.94rem; }
 
+    .figure {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      border-radius: 28px;
+      padding: 1rem;
+    }
     .figure img {
       width: 100%;
-      height: auto;
-      border-radius: 14px;
-      display: block;
+      border-radius: 18px;
       background: white;
     }
-
     .caption {
       margin-top: 0.7rem;
+      font-size: 0.95rem;
       color: var(--muted);
       text-align: center;
-      font-size: 0.95rem;
     }
+
+    .highlight-list {
+      display: grid;
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+    .highlight {
+      padding: 1rem 1.05rem;
+      border-radius: 18px;
+      background: rgba(37,99,235,0.06);
+      border: 1px solid rgba(37,99,235,0.10);
+    }
+    .highlight strong { display: block; margin-bottom: 0.3rem; }
 
     table {
       width: 100%;
       border-collapse: collapse;
       overflow: hidden;
-      border-radius: 18px;
-      margin-top: 0.75rem;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 22px;
+      margin-top: 1rem;
+      background: var(--surface-strong);
       box-shadow: var(--shadow);
+      border: 1px solid var(--border);
     }
-
     th, td {
       padding: 0.95rem 1rem;
       text-align: left;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(15,23,42,0.07);
     }
-
     th {
-      background: rgba(255,255,255,0.06);
-      color: white;
+      background: #f8fbff;
       font-weight: 700;
     }
-
     tr:last-child td { border-bottom: none; }
-
-    code, pre {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, monospace;
-    }
 
     pre {
       margin: 0;
-      background: #09101f;
-      color: #dce6ff;
+      background: #0f172a;
+      color: #e2e8f0;
       padding: 1rem;
-      border-radius: 20px;
+      border-radius: 22px;
       overflow-x: auto;
-      border: 1px solid rgba(255,255,255,0.10);
+      border: 1px solid rgba(15,23,42,0.08);
       box-shadow: var(--shadow);
+      font-size: 0.95rem;
+      line-height: 1.5;
     }
 
     .footer {
-      padding: 2rem 0 3rem;
-      color: var(--muted);
       text-align: center;
-    }
-
-    .note {
-      font-size: 0.96rem;
       color: var(--muted);
+      padding: 2rem 0 3rem;
     }
 
-    @media (max-width: 900px) {
+    .muted { color: var(--muted); }
+    .center { text-align: center; }
+
+    @media (max-width: 980px) {
+      .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .grid-3, .grid-2 { grid-template-columns: 1fr; }
       .nav-inner { flex-direction: column; align-items: flex-start; }
       .nav-links { justify-content: flex-start; }
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding-top: 3.6rem; }
+      .grid-4 { grid-template-columns: 1fr; }
+      .container { width: min(var(--max), calc(100% - 1rem)); }
     }
   </style>
 </head>
@@ -266,8 +289,8 @@
       <div class="brand">🌎 EarthVision</div>
       <div class="nav-links">
         <a href="#abstract">Abstract</a>
-        <a href="#contributions">Contributions</a>
         <a href="#overview">Overview</a>
+        <a href="#contributions">Contributions</a>
         <a href="#models">Models</a>
         <a href="#datasets">Datasets</a>
         <a href="#results">Results</a>
@@ -277,49 +300,67 @@
   </nav>
 
   <header class="hero container">
-    <div class="pill">CVPRW 2026 • World-Scale VLM Geolocalization Analysis</div>
+    <div class="hero-badge">Academic Project Page • Ground-View Geolocalization • Zero-Shot VLM Benchmark</div>
     <h1>Where Do Vision-Language Models Fail?<br>World Scale Analysis for Image Geolocalization</h1>
-    <p class="subtitle">
-      A project page for systematic evaluation of modern vision-language models on country-level geolocalization using ground-view imagery only.
+    <p class="hero-subtitle">
+      A polished project website for a world-scale study of modern vision-language models on country-level image geolocalization using prompt-based reasoning from ground-view imagery.
     </p>
-    <div class="badge-row">
-      <a href="https://arxiv.org/abs/2604.16248" aria-label="arXiv link">
+
+    <div class="authors">
+      <a href="#">Siddhant Bharadwaj</a> ·
+      <a href="#">Ashish Vashist</a> ·
+      <a href="#">Fahimul Aleem</a> ·
+      <a href="#">Shruti Vyas</a>
+    </div>
+    <div class="affiliation">University of Central Florida</div>
+
+    <div class="badge-row" style="margin-bottom: 1rem;">
+      <a href="https://arxiv.org/abs/2604.16248">
         <img alt="arXiv badge" src="https://img.shields.io/badge/arXiv-2604.16248-b31b1b.svg">
       </a>
+      <a href="#citation">
+        <img alt="BibTeX badge" src="https://img.shields.io/badge/Citation-BibTeX-1d4ed8.svg">
+      </a>
     </div>
-    <div class="button-row" style="margin-top: 1rem;">
-      <a class="button primary" href="https://arxiv.org/abs/2604.16248">Read Paper</a>
-      <a class="button" href="#results">See Results</a>
-      <a class="button" href="#citation">BibTeX</a>
+
+    <div class="button-row">
+      <a class="btn primary" href="https://arxiv.org/abs/2604.16248">📄 Read Paper</a>
+      <a class="btn" href="#results">📈 View Results</a>
+      <a class="btn" href="#citation">📚 Copy Citation</a>
     </div>
   </header>
 
   <main>
-    <section id="abstract">
+    <section>
       <div class="container">
-        <h2 class="section-title">📌 Abstract</h2>
-        <p class="section-text">
-          Image geolocalization has traditionally been addressed through retrieval-based place recognition or geometry-based visual localization pipelines. Recent advances in vision-language models (VLMs) have demonstrated strong zero-shot reasoning capabilities across multimodal tasks, yet their performance in geographic inference remains underexplored. In this work, we present a systematic benchmark of multiple state-of-the-art VLMs for country-level image geolocalization using ground-view imagery only. Instead of relying on image matching, GPS metadata, or task-specific training, we evaluate prompt-based country prediction in a zero-shot setting. The selected models are tested on three geographically diverse datasets to assess their robustness and generalization ability. Our results reveal substantial variation across models, highlighting the potential of semantic reasoning for coarse geolocalization and the limitations of current VLMs in capturing fine-grained geographic cues.
-        </p>
+        <div class="grid grid-4">
+          <div class="stat">
+            <div class="value">9</div>
+            <div class="label">Vision-language models benchmarked</div>
+          </div>
+          <div class="stat">
+            <div class="value">3</div>
+            <div class="label">Global geolocalization datasets</div>
+          </div>
+          <div class="stat">
+            <div class="value">219</div>
+            <div class="label">Countries in the broadest benchmark</div>
+          </div>
+          <div class="stat">
+            <div class="value">GER</div>
+            <div class="label">New metric for visually justified errors</div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="contributions">
+    <section id="abstract">
       <div class="container">
-        <h2 class="section-title">🎯 Key Contributions</h2>
-        <div class="grid grid-3">
-          <div class="card">
-            <h3>Unified Benchmark</h3>
-            <p>A consistent evaluation framework for prompt-based geolocalization across multiple VLM families and datasets.</p>
-          </div>
-          <div class="card">
-            <h3>GER Metric</h3>
-            <p>Introduces Geographic Error Reasonableness (GER) to measure whether incorrect predictions are visually plausible.</p>
-          </div>
-          <div class="card">
-            <h3>Failure Analysis</h3>
-            <p>Breaks down errors across urban/rural scenes, biome types, and geographic hop distance patterns.</p>
-          </div>
+        <h2 class="section-title">📌 Abstract</h2>
+        <div class="card">
+          <p class="section-lead">
+            Image geolocalization has traditionally been addressed through retrieval-based place recognition or geometry-based visual localization pipelines. Recent advances in Vision-Language Models (VLMs) have demonstrated strong zero-shot reasoning capabilities across multimodal tasks, yet their performance in geographic inference remains underexplored. In this work, we present a systematic benchmark of multiple state-of-the-art VLMs for country-level image geolocalization using ground-view imagery only. Instead of relying on image matching, GPS metadata, or task-specific training, we evaluate prompt-based country prediction in a zero-shot setting. The selected models are tested on three geographically diverse datasets to assess their robustness and generalization ability. Our results reveal substantial variation across models, highlighting the potential of semantic reasoning for coarse geolocalization and the limitations of current VLMs in capturing fine-grained geographic cues. This study establishes a strong foundation for future work at the intersection of multimodal reasoning and geographic understanding.
+          </p>
         </div>
       </div>
     </section>
@@ -329,29 +370,55 @@
         <h2 class="section-title">🚀 Evaluation Overview</h2>
         <div class="grid grid-2">
           <div>
-            <p class="section-text">
-              Given a single input image, the model predicts the top five most likely countries in JSON format. The benchmark evaluates both unconstrained free-form prediction and label-constrained prediction with a predefined country list.
-            </p>
-            <div class="card" style="margin-top: 1rem;">
-              <h3>Prediction Format</h3>
+            <div class="card">
+              <h3>Problem Setting</h3>
+              <p>
+                Given a single ground-view image, the model predicts the top 5 most likely countries in JSON format. The benchmark studies whether VLMs can infer location through semantic cues such as architecture, vegetation, road layout, and environmental context.
+              </p>
               <pre>{
   "predictions": ["Country1", "Country2", "Country3", "Country4", "Country5"]
 }</pre>
             </div>
-            <div class="grid" style="margin-top: 1rem; gap: 0.8rem;">
-              <div class="card">
-                <h3>Unconstrained Mode</h3>
-                <p>Free-form generation of country predictions.</p>
+
+            <div class="highlight-list">
+              <div class="highlight">
+                <strong>Unconstrained evaluation</strong>
+                Free-form country prediction without a predefined label list.
               </div>
-              <div class="card">
-                <h3>Label-Constrained Mode</h3>
-                <p>Predictions restricted to a valid dataset-specific country list.</p>
+              <div class="highlight">
+                <strong>Label-constrained evaluation</strong>
+                Country selection limited to the valid label space of the target dataset.
+              </div>
+              <div class="highlight">
+                <strong>Multi-dimensional analysis</strong>
+                Accuracy, environmental stratification, hop distance, and Geographic Error Reasonableness.
               </div>
             </div>
           </div>
+
           <div class="figure">
-            <img src="figs/overview.png" alt="Evaluation pipeline overview figure">
-            <div class="caption">Figure 1. Evaluation pipeline of the proposed framework.</div>
+            <img src="figs/overview.png" alt="Overview of the evaluation pipeline">
+            <div class="caption">Figure 1. A structured prompt and a ground-level image are passed to multiple VLM families, followed by accuracy and error-structure analysis.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contributions">
+      <div class="container">
+        <h2 class="section-title">🎯 Key Contributions</h2>
+        <div class="grid grid-3">
+          <div class="card">
+            <h3>Unified VLM Benchmark</h3>
+            <p>A consistent evaluation setup for prompt-based geolocalization using multiple modern open VLM families.</p>
+          </div>
+          <div class="card">
+            <h3>GER: A New Error Metric</h3>
+            <p>Geographic Error Reasonableness measures whether an incorrect prediction is still supported by local visual similarity.</p>
+          </div>
+          <div class="card">
+            <h3>Rich Failure Analysis</h3>
+            <p>Detailed breakdowns across urban vs rural scenes, biome categories, and neighboring-country confusion patterns.</p>
           </div>
         </div>
       </div>
@@ -360,7 +427,8 @@
     <section id="models">
       <div class="container">
         <h2 class="section-title">🏗️ Models Evaluated</h2>
-        <div class="grid grid-3">
+        <p class="section-lead">The benchmark compares 9 vision-language models spanning three families, all evaluated in a zero-shot setting.</p>
+        <div class="grid grid-3" style="margin-top: 1rem;">
           <div class="card">
             <h3>InternVL Family</h3>
             <p>InternVL2.5-1B<br>InternVL2.5-4B<br>InternVL2.5-8B</p>
@@ -371,7 +439,7 @@
           </div>
           <div class="card">
             <h3>Qwen3-VL Family</h3>
-            <p>Qwen3-VL-2B<br><strong>Qwen3-VL-4B</strong> ⭐<br>Qwen3-VL-8B</p>
+            <p>Qwen3-VL-2B<br><strong>Qwen3-VL-4B</strong> ⭐ Best overall<br>Qwen3-VL-8B</p>
           </div>
         </div>
       </div>
@@ -380,6 +448,7 @@
     <section id="datasets">
       <div class="container">
         <h2 class="section-title">📊 Datasets</h2>
+        <p class="section-lead">Three geographically diverse datasets are used to test generalization across different image sources and country label spaces.</p>
         <table>
           <thead>
             <tr>
@@ -418,22 +487,51 @@
         <h2 class="section-title">📈 Results</h2>
         <div class="grid grid-2">
           <div class="figure">
-            <img src="figs/eval_results.png" alt="Geolocalization accuracy across datasets">
-            <div class="caption">Figure 2. Geolocalization accuracy: Top-1 / Top-5 accuracy across all three benchmarks.</div>
+            <img src="figs/eval_results.png" alt="Overall geolocalization accuracy figure">
+            <div class="caption">Figure 2. Top-1 and Top-5 country-level accuracy across GeoGuessr-50k, CityGuessr, and OSV5M.</div>
           </div>
           <div class="card">
-            <h3>Main Observations</h3>
-            <ul>
-              <li>Qwen3-VL-4B is the best overall model across the benchmark.</li>
-              <li>Model performance varies strongly across datasets and environment types.</li>
-              <li>Geographic failure modes become more interpretable with GER and hop-based analysis.</li>
-            </ul>
+            <h3>Main Findings</h3>
+            <div class="highlight-list">
+              <div class="highlight">
+                <strong>Qwen3-VL-4B leads overall</strong>
+                It achieves the strongest balance of accuracy and error quality across the benchmark.
+              </div>
+              <div class="highlight">
+                <strong>Urban scenes are easier</strong>
+                Models perform better in environments with dense structural and semantic cues.
+              </div>
+              <div class="highlight">
+                <strong>Error quality matters</strong>
+                GER helps distinguish visually justified confusions from arbitrary geographic mistakes.
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="figure" style="margin-top: 1rem;">
-          <img src="figs/table7.png" alt="Neighbouring country confusion analysis">
-          <div class="caption">Figure 3. Neighbouring country confusion analysis using Qwen3-VL-4B-Instruct in a blind two-turn setting.</div>
+          <img src="figs/table7.png" alt="Neighbouring country confusion examples">
+          <div class="caption">Figure 3. Neighbouring-country confusion examples for Qwen3-VL-4B-Instruct under a blind two-turn prompting setup.</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">🔍 Why This Project Matters</h2>
+        <div class="grid grid-3">
+          <div class="card">
+            <h3>Beyond Retrieval</h3>
+            <p>This work studies semantic geolocalization directly, instead of relying on matching against a reference database.</p>
+          </div>
+          <div class="card">
+            <h3>Interpretable Failures</h3>
+            <p>The analysis focuses not only on whether models fail, but also how and why they fail across geography and environment.</p>
+          </div>
+          <div class="card">
+            <h3>Foundation for Future Work</h3>
+            <p>The benchmark provides a strong starting point for hybrid systems that combine reasoning, grounding, and retrieval.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -453,19 +551,19 @@
       </div>
     </section>
 
-    <section id="contact">
+    <section>
       <div class="container">
-        <h2 class="section-title">📬 Contact</h2>
-        <div class="card">
-          <p>For questions or collaboration, please open an issue on the repository or reach out through the contact details listed in the paper.</p>
-          <p class="note">Tip: place this file at the root of your repository as <code>index.html</code>, keep the <code>figs/</code> folder next to it, then enable GitHub Pages from your repository settings.</p>
+        <div class="card center">
+          <h2 class="section-title" style="margin-bottom: 0.4rem;">📬 Contact</h2>
+          <p class="muted">For questions or collaboration, open an issue on the repository or use the contact details listed in the paper.</p>
+          <p class="muted">To deploy with GitHub Pages, save this file as <code>index.html</code> in the repository root and keep the <code>figs/</code> folder beside it.</p>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer container">
-    Built from the project README for GitHub Pages deployment.
+    Built for GitHub Pages from the EarthVision project materials.
   </footer>
 </body>
 </html>
