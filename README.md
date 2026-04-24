@@ -4,14 +4,21 @@
 World Scale Analysis for Image Geolocalization
 </h1>
 
+
+<div style="text-align: center;">
+  <p align="center">
+    <b>Siddhant Bharadwaj · Ashish Vashist · Fahimul Aleem · Shruti Vyas</b>
+  </p>
+</div>
+
+
+
 <p align="center">
-  <a href="[https://arxiv.org/abs/2604.16248](https://arxiv.org/abs/2604.16248)">
+  <a href="https://arxiv.org/abs/2604.16248">
     <img src="https://img.shields.io/badge/arXiv-2604.16248-b31b1b.svg">
   </a>
 </p>
-
-
-
+📜 Accepted to the CVPR EarthVision 2026 Workshop
 
 ## 📌 Abstract
 
